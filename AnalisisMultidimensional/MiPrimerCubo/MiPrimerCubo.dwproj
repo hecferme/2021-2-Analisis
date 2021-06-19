@@ -6,10 +6,67 @@
     <Name>MiPrimerCubo.database</Name>
     <FullPath>MiPrimerCubo.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Pruebas ETL.cube</Name>
+      <FullPath>Pruebas ETL.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Pruebas ETL.partitions</Name>
+          <FullPath>Pruebas ETL.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Dim Products.dim</Name>
+      <FullPath>Dim Products.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fact Orders.dim</Name>
+      <FullPath>Fact Orders.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Customers.dim</Name>
+      <FullPath>Dim Customers.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Employees.dim</Name>
+      <FullPath>Dim Employees.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>Pruebas ETL.ds</Name>
+      <FullPath>Pruebas ETL.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>Pruebas ETL.dsv</Name>
+      <FullPath>Pruebas ETL.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>Pruebas ETL</Id>
+            <Name>Pruebas ETL</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=(local);Integrated Security=SSPI;Initial Catalog=PruebasETL</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>Pruebas ETL</Id>
+            <Name>Pruebas ETL</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>
