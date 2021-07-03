@@ -35,6 +35,10 @@
       <Name>Dim Employees.dim</Name>
       <FullPath>Dim Employees.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>DimOrderDate.dim</Name>
+      <FullPath>DimOrderDate.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
