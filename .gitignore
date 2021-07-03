@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/AnalisisMultidimensional/.vs/MiPrimerCubo/v16/.suo
+/AnalisisMultidimensional/MiPrimerCubo/bin
+/AnalisisMultidimensional/MiPrimerCubo/obj/Development
