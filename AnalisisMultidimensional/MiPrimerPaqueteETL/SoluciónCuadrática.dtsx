@@ -1,0 +1,281 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/17/2021 3:04:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BIG-HARDWARE"
+  DTS:CreatorName="BIG-HARDWARE\whosthebosssoftwarei"
+  DTS:DTSID="{3D07361A-E865-4E91-A6BC-731BA2CD8677}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="SoluciónCuadrática"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E260DA87-C739-4415-B477-CDDA84DFEB6F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D2E9636-29CB-4CC5-8A97-95E70AD4E8E6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="a">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{50844849-7008-4E8D-AF3A-83F1CCC5B0B2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="b">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A5490C2-C8E9-481B-B3B1-A9538CCF051D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="c">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10A67153-9507-486A-B08A-F6C85BAD6142}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="discriminante">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA74EA17-0792-44B6-8858-944D3714F6CF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mensaje">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\A es igual a cero (0)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{38E043FB-7170-4E29-B726-84FB9FB5EE9E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="A es igual a cero (0)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Asignar mensaje de error A es igual a cero (0)"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Expression Task"
+      DTS:DTSID="{B3742338-ED0E-42A7-ADCA-2368D58C6E2D}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Asignar mensaje de error A es igual a cero (0)"
+      DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::mensaje] = &quot;Error fatal:  el valor de a no puede ser cero.&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicio"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{05F1BCA4-B808-4A38-8E6B-5AD180F80E92}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicio"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pausa"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{316D57CF-09A0-468A-A8A6-5720E9910821}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pausa"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AEDFF8EC-4FFB-4CF4-9EE9-0BD2F5670538}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[User::a] ==0"
+      DTS:From="Package\Inicio"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\A es igual a cero (0)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{361E8A81-B115-4F13-A914-C84FEDC47373}"
+      DTS:From="Package\A es igual a cero (0)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Asignar mensaje de error A es igual a cero (0)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{FA63E838-890D-4483-8C96-8665566CDB80}"
+      DTS:From="Package\Asignar mensaje de error A es igual a cero (0)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Pausa" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\A es igual a cero (0)"
+          TopLeft="110.909090909091,198.181818181818" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Asignar mensaje de error A es igual a cero (0)"
+          TopLeft="50.9090909090909,306.363636363636" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Inicio"
+          TopLeft="356,38" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\Pausa"
+          TopLeft="115.454545454545,386.363636363636" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="408.5,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-210.090909090909,118.181818181818"
+              Start="0,0"
+              End="-210.090909090909,110.681818181818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.0909090909091"
+                    Point2="0,59.0909090909091"
+                    Point3="-4,59.0909090909091" />
+                  <mssgle:LineSegment
+                    End="-206.090909090909,59.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-206.090909090909,59.0909090909091"
+                    Point2="-210.090909090909,59.0909090909091"
+                    Point3="-210.090909090909,63.0909090909091" />
+                  <mssgle:LineSegment
+                    End="-210.090909090909,110.681818181818" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.045454545455,64.0909090909091,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="198.909090909091,240.181818181818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.1818181818182"
+              Start="0,0"
+              End="0,58.6818181818182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.6818181818182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="199.409090909091,348.363636363636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.4545454545455,38"
+              Start="0,0"
+              End="-30.4545454545455,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-26.4545454545455,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.4545454545455,19"
+                    Point2="-30.4545454545455,19"
+                    Point3="-30.4545454545455,23" />
+                  <mssgle:LineSegment
+                    End="-30.4545454545455,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

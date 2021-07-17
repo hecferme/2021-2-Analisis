@@ -1,0 +1,287 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/17/2021 3:58:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BIG-HARDWARE"
+  DTS:CreatorName="BIG-HARDWARE\whosthebosssoftwarei"
+  DTS:DTSID="{D01BB7EC-78A7-4585-9E9F-09EAD4FCAAF6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{283E2AC2-7972-4B7D-9F31-1147915BFFAD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(local).trabajo]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8CF80F04-8AAB-4B0E-BEBE-6E131BD9FBEE}"
+      DTS:ObjectName="(local).trabajo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=trabajo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7E193DC-2E4C-4426-B9C2-39015FA4544F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="create_date">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2021</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F82A342D-B927-4BE9-BBD7-18A195B32CA6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="nombre_tabla">
+      <DTS:VariableValue
+        DTS:DataType="8">y</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{647A17DC-93BD-4F72-B528-8A4205FDCBED}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="object_id">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{59282ACC-F136-45C3-B8D6-41EDC4B8660C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="type">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C9F84A0-3769-436C-8195-CD578C5D4BF5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="type_desc">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{A2369CAF-FF7F-4510-9BE5-02D77118E9F0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8A0458BC-0882-4915-9940-B1F0217C7981}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ejecute un SQL que devuelve una fila con muchas columnas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D7B5FC20-80D3-4DB8-B59F-507E68F35F66}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecute un SQL que devuelve una fila con muchas columnas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8CF80F04-8AAB-4B0E-BEBE-6E131BD9FBEE}"
+          SQLTask:SqlStatementSource="declare @nombreTabla as varchar (100) = ?&#xA;select top (1) &#xA;t.object_id, t.create_date, t.type_desc, t.type&#xA;from sys.tables t&#xA;where t.name = @nombreTabla"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="type_desc"
+            SQLTask:DtsVariableName="User::type_desc" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="type"
+            SQLTask:DtsVariableName="User::type" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="create_date"
+            SQLTask:DtsVariableName="User::create_date" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="object_id"
+            SQLTask:DtsVariableName="User::object_id" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::nombre_tabla"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ejecute un SQL que no devuelve nada"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{BBFF250B-9B56-4C0E-A7AC-5F08C4398C4C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecute un SQL que no devuelve nada"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8CF80F04-8AAB-4B0E-BEBE-6E131BD9FBEE}"
+          SQLTask:SqlStatementSource="declare @mensaje as int = 100&#xA;select @mensaje = 200&#xA;-- ddl --&gt; data definition language&#xA;-- create - alter - delete&#xA;-- NO DEVUELVEN NADA&#xA;if OBJECT_ID('x', 'U') is not NULL&#xA;    drop table x&#xA;create table x (a int null);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A7D6371D-07C7-439E-A95A-4F83AB2BF5E0}"
+      DTS:From="Package\Ejecute un SQL que no devuelve nada"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4F076F3B-4B22-4DF7-AC67-539FD96C926E}"
+      DTS:From="Package\Ejecute un SQL que devuelve una fila con muchas columnas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Ejecute un SQL que no devuelve nada"
+          TopLeft="667.833333333333,140.666666666667" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="750,251.666666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="796.833333333333,182.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.6666666666667,69"
+              Start="0,0"
+              End="28.6666666666667,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="24.6666666666667,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.6666666666667,34.5"
+                    Point2="28.6666666666667,34.5"
+                    Point3="28.6666666666667,38.5" />
+                  <mssgle:LineSegment
+                    End="28.6666666666667,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="362,42"
+          Id="Package\Ejecute un SQL que devuelve una fila con muchas columnas"
+          TopLeft="125,128.333333333333" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="277.5,223.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="306,170.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.5,53"
+              Start="0,0"
+              End="51.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="47.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.5,26.5"
+                    Point2="51.5,26.5"
+                    Point3="51.5,30.5" />
+                  <mssgle:LineSegment
+                    End="51.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
