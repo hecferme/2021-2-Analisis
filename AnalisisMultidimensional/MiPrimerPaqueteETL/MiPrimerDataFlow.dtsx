@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{866C78E8-7CF9-455A-9FEE-1F52E6C7D466}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{0264C7FA-BCF0-4B66-9B14-34B3D6F50CB5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -489,6 +489,151 @@ where [refTable].[ProductID] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Determine dónde grabar"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Más de cien]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Más de cien"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[Quantity]} &gt; 100</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Quantity &gt; 100</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Más de cincuenta]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Más de cincuenta"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[Quantity]} &gt; 50</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Quantity &gt; 50</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Más de veinticinco]"
+                  description="Output 3 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Más de veinticinco"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[Quantity]} &gt; 25</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Quantity &gt; 25</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Veinticinco o menos]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Veinticinco o menos"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -504,7 +649,7 @@ where [refTable].[ProductID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[MiPrimerDataFlow]</property>
+                  name="OpenRowset">[MiPrimerDataFlow]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -547,8 +692,8 @@ where [refTable].[ProductID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información.Connections[OleDbConnection]"
-                  connectionManagerID="{2E3575EC-4E59-4D83-B170-93583F09759B}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[35.236.5.189.NorthWnd.sqlserver]"
+                  connectionManagerID="{D7A9B82D-9749-41CC-9F40-867FDB75EE64}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[35.236.5.189.DatosETL.sqlserver]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -692,6 +837,639 @@ where [refTable].[ProductID] = ?</property>
                       refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Grabar Información 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[MiPrimerDataFlow]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Connections[OleDbConnection]"
+                  connectionManagerID="{D7A9B82D-9749-41CC-9F40-867FDB75EE64}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[35.236.5.189.DatosETL.sqlserver]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[SourceUnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="SourceUnitPrice"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceUnitPrice]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[SourceUnitPrice]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[SourceDiscount]"
+                      cachedDataType="r4"
+                      cachedName="SourceDiscount"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceDiscount]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[SourceDiscount]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Busque el nombre del producto.Outputs[Lookup Match Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[ReversedUpperProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ReversedUpperProductName"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[ReversedUpperProductName]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Obtenga el nombre del producto al revés y en mayúscula.Outputs[Derived Column Output].Columns[ReversedUpperProductName]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[MontoBruto]"
+                      cachedDataType="numeric"
+                      cachedName="MontoBruto"
+                      cachedPrecision="25"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[MontoBruto]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule el monto bruto.Outputs[Derived Column Output].Columns[MontoBruto]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[MontoDescuento]"
+                      cachedDataType="r4"
+                      cachedName="MontoDescuento"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[MontoDescuento]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule descuento.Outputs[Derived Column Output].Columns[MontoDescuento]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].Columns[MontoNeto]"
+                      cachedDataType="r4"
+                      cachedName="MontoNeto"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[MontoNeto]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule monto neto.Outputs[Derived Column Output].Columns[MontoNeto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceUnitPrice]"
+                      dataType="cy"
+                      name="SourceUnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceDiscount]"
+                      dataType="r4"
+                      name="SourceDiscount" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[ReversedUpperProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ReversedUpperProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[MontoBruto]"
+                      dataType="numeric"
+                      name="MontoBruto"
+                      precision="25"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[MontoDescuento]"
+                      dataType="r4"
+                      name="MontoDescuento" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input].ExternalColumns[MontoNeto]"
+                      dataType="r4"
+                      name="MontoNeto" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Grabar Información 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[MiPrimerDataFlow]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Connections[OleDbConnection]"
+                  connectionManagerID="{D7A9B82D-9749-41CC-9F40-867FDB75EE64}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[35.236.5.189.DatosETL.sqlserver]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[SourceUnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="SourceUnitPrice"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[SourceUnitPrice]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[SourceUnitPrice]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[SourceDiscount]"
+                      cachedDataType="r4"
+                      cachedName="SourceDiscount"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[SourceDiscount]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[SourceDiscount]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Busque el nombre del producto.Outputs[Lookup Match Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[ReversedUpperProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ReversedUpperProductName"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[ReversedUpperProductName]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Obtenga el nombre del producto al revés y en mayúscula.Outputs[Derived Column Output].Columns[ReversedUpperProductName]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[MontoBruto]"
+                      cachedDataType="numeric"
+                      cachedName="MontoBruto"
+                      cachedPrecision="25"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[MontoBruto]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule el monto bruto.Outputs[Derived Column Output].Columns[MontoBruto]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[MontoDescuento]"
+                      cachedDataType="r4"
+                      cachedName="MontoDescuento"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[MontoDescuento]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule descuento.Outputs[Derived Column Output].Columns[MontoDescuento]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].Columns[MontoNeto]"
+                      cachedDataType="r4"
+                      cachedName="MontoNeto"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[MontoNeto]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule monto neto.Outputs[Derived Column Output].Columns[MontoNeto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[SourceUnitPrice]"
+                      dataType="cy"
+                      name="SourceUnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[SourceDiscount]"
+                      dataType="r4"
+                      name="SourceDiscount" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[ReversedUpperProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ReversedUpperProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[MontoBruto]"
+                      dataType="numeric"
+                      name="MontoBruto"
+                      precision="25"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[MontoDescuento]"
+                      dataType="r4"
+                      name="MontoDescuento" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input].ExternalColumns[MontoNeto]"
+                      dataType="r4"
+                      name="MontoNeto" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Grabar Información en otra tabla"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[MiPrimerDataFlow]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Connections[OleDbConnection]"
+                  connectionManagerID="{D7A9B82D-9749-41CC-9F40-867FDB75EE64}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[35.236.5.189.DatosETL.sqlserver]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[SourceUnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="SourceUnitPrice"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[SourceUnitPrice]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[SourceUnitPrice]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[SourceDiscount]"
+                      cachedDataType="r4"
+                      cachedName="SourceDiscount"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[SourceDiscount]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output].Columns[SourceDiscount]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Busque el nombre del producto.Outputs[Lookup Match Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[ReversedUpperProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ReversedUpperProductName"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[ReversedUpperProductName]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Obtenga el nombre del producto al revés y en mayúscula.Outputs[Derived Column Output].Columns[ReversedUpperProductName]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[MontoBruto]"
+                      cachedDataType="numeric"
+                      cachedName="MontoBruto"
+                      cachedPrecision="25"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[MontoBruto]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule el monto bruto.Outputs[Derived Column Output].Columns[MontoBruto]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[MontoDescuento]"
+                      cachedDataType="r4"
+                      cachedName="MontoDescuento"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[MontoDescuento]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule descuento.Outputs[Derived Column Output].Columns[MontoDescuento]" />
+                    <inputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].Columns[MontoNeto]"
+                      cachedDataType="r4"
+                      cachedName="MontoNeto"
+                      externalMetadataColumnId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[MontoNeto]"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Calcule monto neto.Outputs[Derived Column Output].Columns[MontoNeto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[SourceUnitPrice]"
+                      dataType="cy"
+                      name="SourceUnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[SourceDiscount]"
+                      dataType="r4"
+                      name="SourceDiscount" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[ReversedUpperProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ReversedUpperProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[MontoBruto]"
+                      dataType="numeric"
+                      name="MontoBruto"
+                      precision="25"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[MontoDescuento]"
+                      dataType="r4"
+                      name="MontoDescuento" />
+                    <externalMetadataColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input].ExternalColumns[MontoNeto]"
+                      dataType="r4"
+                      name="MontoNeto" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -985,7 +1763,7 @@ o.OrderDate between @a and @b</property>
               startId="Package\Extraiga los datos, transforme y Realice la carga\Calcule descuento.Outputs[Derived Column Output]" />
             <path
               refId="Package\Extraiga los datos, transforme y Realice la carga.Paths[Derived Column Output3]"
-              endId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información.Inputs[OLE DB Destination Input]"
+              endId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Inputs[Conditional Split Input]"
               name="Derived Column Output"
               startId="Package\Extraiga los datos, transforme y Realice la carga\Calcule monto neto.Outputs[Derived Column Output]" />
             <path
@@ -994,10 +1772,30 @@ o.OrderDate between @a and @b</property>
               name="Lookup Match Output"
               startId="Package\Extraiga los datos, transforme y Realice la carga\Busque el nombre del producto.Outputs[Lookup Match Output]" />
             <path
+              refId="Package\Extraiga los datos, transforme y Realice la carga.Paths[Más de cien]"
+              endId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla.Inputs[OLE DB Destination Input]"
+              name="Más de cien"
+              startId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Más de cien]" />
+            <path
+              refId="Package\Extraiga los datos, transforme y Realice la carga.Paths[Más de cincuenta]"
+              endId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1.Inputs[OLE DB Destination Input]"
+              name="Más de cincuenta"
+              startId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Más de cincuenta]" />
+            <path
+              refId="Package\Extraiga los datos, transforme y Realice la carga.Paths[Más de veinticinco]"
+              endId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información.Inputs[OLE DB Destination Input]"
+              name="Más de veinticinco"
+              startId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Más de veinticinco]" />
+            <path
               refId="Package\Extraiga los datos, transforme y Realice la carga.Paths[OLE DB Source Output]"
               endId="Package\Extraiga los datos, transforme y Realice la carga\Busque el nombre del producto.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Extraiga los datos, transforme y Realice la carga\Lea los registros.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Extraiga los datos, transforme y Realice la carga.Paths[Veinticinco o menos]"
+              endId="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2.Inputs[OLE DB Destination Input]"
+              name="Veinticinco o menos"
+              startId="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar.Outputs[Veinticinco o menos]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1020,7 +1818,7 @@ o.OrderDate between @a and @b</property>
           Id="Package\Extraiga los datos, transforme y Realice la carga"
           TopLeft="462.076923076923,215.461538461538" />
         <AnnotationLayout
-          Text="(E) haga un paquete que busque todos los detalles de productos de facturas que se encuentran en un intervalo de fechas &#xA;(L)y los copie a una tabla de sql server llamada MiPrimerDataFlow.&#xA;(T)&#xA;Las transformaciones que debe hacer son:&#xA; - incluye el nombre del producto en mayúsculas y en con los caracteres en orden inverso &#xA; - calcula el monto bruto de la línea de la orden&#xA; - calcula el monto del descuento&#xA; - calcula el monto neto de la línea de la orden"
+          Text="(E) haga un paquete que busque todos los detalles de productos de facturas que se encuentran en un intervalo de fechas &#xA;(L)y los copie a una tabla de sql server llamada MiPrimerDataFlow.&#xA;(T)&#xA;Las transformaciones que debe hacer son:&#xA; - incluye el nombre del producto en mayúsculas y con los caracteres en orden inverso &#xA; - calcula el monto bruto de la línea de la orden&#xA; - calcula el monto del descuento&#xA; - calcula el monto neto de la línea de la orden"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="673,152"
@@ -1033,7 +1831,7 @@ o.OrderDate between @a and @b</property>
     design-time-name="Package\Extraiga los datos, transforme y Realice la carga">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\Extraiga los datos, transforme y Realice la carga\Calcule monto neto"
@@ -1046,6 +1844,10 @@ o.OrderDate between @a and @b</property>
           Size="164,42"
           Id="Package\Extraiga los datos, transforme y Realice la carga\Calcule descuento"
           TopLeft="462.142857142857,457.857142857143" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información"
+          TopLeft="462.307692307692,759.230769230769" />
         <NodeLayout
           Size="348,42"
           Id="Package\Extraiga los datos, transforme y Realice la carga\Obtenga el nombre del producto al revés y en mayúscula"
@@ -1183,29 +1985,185 @@ o.OrderDate between @a and @b</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="171,42"
-          Id="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información"
-          TopLeft="465.384615384615,612.307692307692" />
+          Size="234,42"
+          Id="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información en otra tabla"
+          TopLeft="224.615384615384,807.384615384615" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Extraiga los datos, transforme y Realice la carga\Determine dónde grabar"
+          TopLeft="445.384615384615,619.230769230769" />
         <EdgeLayout
           Id="Package\Extraiga los datos, transforme y Realice la carga.Paths[Derived Column Output3]"
-          TopLeft="548.299450549451,572.714285714286">
+          TopLeft="544.049450549451,572.714285714286">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.5934065934063"
+              EndConnector="0,46.5164835164833"
               Start="0,0"
-              End="0,32.0934065934063">
+              End="0,39.0164835164833">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.0934065934063" />
+                    End="0,39.0164835164833" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 1"
+          TopLeft="780.76923076923,736.615384615385" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información 2"
+          TopLeft="637.692307692307,816.615384615385" />
+        <EdgeLayout
+          Id="Package\Extraiga los datos, transforme y Realice la carga.Paths[Más de cien]"
+          TopLeft="486.584615384615,661.230769230769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144.969230769231,146.153846153846"
+              Start="0,0"
+              End="-144.969230769231,138.653846153846">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5711900256039" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5711900256039"
+                    Point2="0,43.5711900256039"
+                    Point3="-4,43.5711900256039" />
+                  <mssgle:LineSegment
+                    End="-140.969230769231,43.5711900256039" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-140.969230769231,43.5711900256039"
+                    Point2="-144.969230769231,43.5711900256039"
+                    Point3="-144.969230769231,47.5711900256039" />
+                  <mssgle:LineSegment
+                    End="-144.969230769231,138.653846153846" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98.9065489783656,48.5711900256039,52.8438671875,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extraiga los datos, transforme y Realice la carga.Paths[Más de veinticinco]"
+          TopLeft="523.784615384615,661.230769230769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.0230769230766,97.9999999999998"
+              Start="0,0"
+              End="24.0230769230766,90.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8038768529075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.8038768529075"
+                    Point2="0,43.8038768529075"
+                    Point3="4,43.8038768529075" />
+                  <mssgle:LineSegment
+                    End="20.0230769230766,43.8038768529075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.0230769230766,43.8038768529075"
+                    Point2="24.0230769230766,43.8038768529075"
+                    Point3="24.0230769230766,47.8038768529075" />
+                  <mssgle:LineSegment
+                    End="24.0230769230766,90.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.8454927884617,48.8038768529075,81.7140625,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extraiga los datos, transforme y Realice la carga.Paths[Veinticinco o menos]"
+          TopLeft="560.984615384615,661.230769230769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.707692307692,155.384615384615"
+              Start="0,0"
+              End="166.707692307692,147.884615384615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.4535567055521" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,65.4535567055521"
+                    Point2="0,69.4535567055521"
+                    Point3="4,69.4535567055521" />
+                  <mssgle:LineSegment
+                    End="162.707692307692,69.4535567055521" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.707692307692,69.4535567055521"
+                    Point2="166.707692307692,69.4535567055521"
+                    Point3="166.707692307692,73.4535567055521" />
+                  <mssgle:LineSegment
+                    End="166.707692307692,147.884615384615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="38.3930844350959,74.4535567055521,89.9215234375,9.470703125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extraiga los datos, transforme y Realice la carga.Paths[Más de cincuenta]"
+          TopLeft="598.184615384615,661.230769230769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="268.084615384615,75.3846153846152"
+              Start="0,0"
+              End="268.084615384615,67.8846153846152">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4735611711009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.4735611711009"
+                    Point2="0,22.4735611711009"
+                    Point3="4,22.4735611711009" />
+                  <mssgle:LineSegment
+                    End="264.084615384615,22.4735611711009" />
+                  <mssgle:CubicBezierSegment
+                    Point1="264.084615384615,22.4735611711009"
+                    Point2="268.084615384615,22.4735611711009"
+                    Point3="268.084615384615,26.4735611711009" />
+                  <mssgle:LineSegment
+                    End="268.084615384615,67.8846153846152" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="95.4389483173075,27.4735611711009,77.20671875,10.3349609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1216,6 +2174,19 @@ o.OrderDate between @a and @b</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1239,19 +2210,6 @@ o.OrderDate between @a and @b</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extraiga los datos, transforme y Realice la carga\Grabar Información">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
